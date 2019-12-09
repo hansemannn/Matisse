@@ -128,10 +128,7 @@ public class AlbumLoader extends CursorLoader {
     public static CursorLoader newInstance(Context context) {
         String selection;
         String[] selectionArgs;
-        if (SelectionSpec.getInstance().onlyShowGif()) {
-            selection = android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? SELECTION_FOR_SINGLE_MEDIA_GIF_TYPE : SELECTION_FOR_SINGLE_MEDIA_GIF_TYPE_29;
-            selectionArgs = getSelectionArgsForSingleMediaGifType(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
-        }else if (SelectionSpec.getInstance().onlyShowImages()) {
+        if (SelectionSpec.getInstance().onlyShowImages()) {
             selection = android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? SELECTION_FOR_SINGLE_MEDIA_TYPE : SELECTION_FOR_SINGLE_MEDIA_TYPE_29;
             selectionArgs = getSelectionArgsForSingleMediaType(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
         } else if (SelectionSpec.getInstance().onlyShowVideos()) {
